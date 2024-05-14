@@ -4,7 +4,7 @@ void Game::Run(){
     InitWindow(SCREEN_WEEDTH, SCREEN_HEIGHT, "HappyBus");
     SetTargetFPS(FPS);               
     
-    road = LoadTexture("D:\\HappyBus\\src\\textures\\road.png");
+    road = LoadTexture("textures\\road.png");
 
     while (!WindowShouldClose())    
     {

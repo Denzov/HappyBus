@@ -5,9 +5,8 @@
 
 class Door
 {
-private:
-    const float width = 20, height = 20;
 public:
+    const float width = 100, height = 20;
     void draw();
     Vector2 position;
     bool isOpen = 1;    
