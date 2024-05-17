@@ -11,8 +11,10 @@ void Game::Run(){
         BeginDrawing();
         BeginMode2D(camera);
         DrawTexture(road, 0, 0, WHITE);
-
+        if(IsKeyPressed(KEY_SPACE)) state = TRANSITION_TO_DRIVING;
+        
         step();
+        
         EndMode2D();
         EndDrawing();
     }
@@ -28,9 +30,12 @@ void Game::step(){
             bus.position.y += bus.vertical_speed;
         }    
         else if(camera.target.y < SCREEN_HEIGHT/2 - (bus.height/2 + 50)){
-            camera.target.y += 3;
+            bus.doorsOpen = 1;    
+            camera.target.y += 4;
         }
         else{
+            
+            
             state = BOARDING;
         }
         break;
@@ -40,10 +45,15 @@ void Game::step(){
         break;
 
     case TRANSITION_TO_DRIVING:
-        if(bus.position.y + (bus.height) > SCREEN_HEIGHT/2){
+        if(camera.target.y > 0){
+            bus.doorsOpen = 0;    
+            camera.target.y -= 4;
+        } 
+        else if(bus.position.y + (bus.height/2) > SCREEN_HEIGHT/2){
             bus.position.y -= bus.vertical_speed;
-        }        
+        }       
         else{
+            
             state = DRIVING;
         }
         break;
@@ -57,8 +67,19 @@ void Game::step(){
 }
 
 void Game::boarding(){
+
+
 }
 
 void Game::driving(){
     
+}
+
+void Game::spawn_passengers_on_station(){
+    uint8_t value_passengers = GetRandomValue(7, 14); 
+    for(uint8_t i = 0; i < value_passengers; i++){
+        //float x = GetRandomValue();
+        //station_passengers.push_back(Passenger({}));
+        
+    }
 }

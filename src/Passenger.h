@@ -11,6 +11,7 @@ private:
     const float radius = 50.0f;    
     
 public:
+    Passenger(float x, float y);
     void draw();
 
 

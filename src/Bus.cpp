@@ -4,7 +4,7 @@ Bus::Bus(){
     
     for(uint8_t i=0; i < 3; i++){
         std::cout<< WIDTH_DOOR_0 << '\n';
-        door[i].position.x = position.x + WIDTH_DOOR_0 + door[i].width * i + DELTA_W_DOOR*(i*2 + 1) ;
+        door[i].position.x = position.x + WIDTH_DOOR_0 + door[i].width * i + DELTA_W_DOOR*(i*2 + 1);
         door[i].position.y = SCREEN_HEIGHT/2 + (height + 50);
     }
 }

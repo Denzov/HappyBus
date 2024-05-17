@@ -6,10 +6,10 @@
 class Door
 {
 public:
-    const float width = 100, height = 20;
+    const float width = 130, height = 30;
     void draw();
     Vector2 position;
-    bool isOpen = 1;    
+    bool isOpen = 0;    
 };
 
 
