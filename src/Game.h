@@ -20,8 +20,10 @@ private:
     Bus bus;
     State state = TRANSITION_TO_BOARDING;
 
-    float BusStationZone = 0;
-
+    const float BUS_STATION_ZONE_TOP = SCREEN_HEIGHT/2 + (bus.height + 150);
+    const float BUS_STATION_ZONE_BOTTOM = SCREEN_HEIGHT/2 + (bus.height + 500);
+    const float BUS_STATION_ZONE_LEFT = SCREEN_WEEDTH/2 - bus.width/2 - 30;
+    const float BUS_STATION_ZONE_RIGHT =  SCREEN_WEEDTH/2 + bus.width/2 + 30;
     Texture2D road;
 
     Camera2D camera = { {0, 0}, {0, 0}, 0, 1};
@@ -32,7 +34,8 @@ private:
     void step();
     void boarding();
     void driving();
-    void spawn_passengers_on_station();
+    void spawn_station_passengers();
+    void draw_station_passengers();
 public:
     void Run();
 };
